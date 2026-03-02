@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hurshanth | System Architect</title>
+
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'JetBrains Mono',monospace;
@@ -39,9 +48,11 @@ top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:15px 8%;
 background:#000;
 border-bottom:1px solid #0f0;
+z-index:1000;
 }
 
 nav h3{
@@ -66,7 +77,13 @@ nav a:hover{
 background:#39ff14;
 color:#000;
 padding:2px 6px;
-border-radius: 10px;
+border-radius:10px;
+}
+
+.menu-toggle{
+display:none;
+font-size:24px;
+cursor:pointer;
 }
 
 .hero{
@@ -75,7 +92,6 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 padding:0 8%;
-border-radius: 10px;
 }
 
 .hero h1{
@@ -97,22 +113,22 @@ background:transparent;
 color:#39ff14;
 cursor:pointer;
 font-family:inherit;
+font-weight:bold;
+border-radius:20px;
 }
 
 .btn:hover{
 background:#39ff14;
 color:#000;
-border-radius: 10px;
 }
 
 section{
 padding:70px 8%;
 border-top:1px solid #003300;
-border-radius: 10px;
 }
 
 .section-title{
-margin-bottom: 20px;
+margin-bottom:20px;
 font-size:20px;
 color:#7cff7c;
 }
@@ -123,19 +139,19 @@ padding:15px;
 margin:10px 0;
 background:#050505;
 transition:0.3s;
-border-radius: 20px;
-}
-
-.prompt {
-  color: #39ff14;
-  padding:70px 8%;
-  font-size: 23px;
-  font-family: monospace;
-  font-weight: bold;
+border-radius:20px;
 }
 
 .card:hover{
 box-shadow:0 0 10px #39ff14;
+}
+
+.prompt{
+color:#39ff14;
+padding:70px 8%;
+font-size:23px;
+font-weight:bold;
+text-align:center;
 }
 
 footer{
@@ -144,8 +160,65 @@ border-top:1px solid #003300;
 font-size:13px;
 color:#66ff66;
 }
-@media(max-width:768px){
-.hero h1{font-size:35px}
+
+@media (max-width:768px){
+
+nav{
+flex-direction:column;
+align-items:flex-start;
+padding:15px 5%;
+}
+
+.menu-toggle{
+display:block;
+position:absolute;
+right:5%;
+top:15px;
+}
+
+nav ul{
+flex-direction:column;
+gap:10px;
+margin-top:10px;
+width:100%;
+display:none;
+}
+
+nav ul.active{
+display:flex;
+}
+
+.hero{
+height:auto;
+padding:120px 5% 60px;
+}
+
+.hero h1{
+font-size:28px;
+line-height:1.3;
+}
+
+.hero p{
+font-size:14px;
+}
+
+section{
+padding:60px 5%;
+}
+
+.card{
+font-size:14px;
+}
+
+.section-title{
+font-size:18px;
+}
+
+.prompt{
+font-size:16px;
+padding:40px 5%;
+}
+
 }
 </style>
 </head>
@@ -154,6 +227,7 @@ color:#66ff66;
 
 <nav>
 <h3>portfolio@hurshanth</h3>
+<div class="menu-toggle">☰</div>
 <ul>
 <li><a href="#about">about</a></li>
 <li><a href="#skills">skills</a></li>
@@ -165,7 +239,8 @@ color:#66ff66;
 <div class="hero">
 <h1>> Initializing Hurshanth...</h1>
 <p>Developer focused on designs and colours, system, precision and digital architecture.</p>
-<button style="border-radius: 20px;font-family:'JetBrains Mono',monospace;font-weight: bold;"class="btn" onclick="document.getElementById('projects').scrollIntoView()">
+
+<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
 $ view_projects
 </button>
 </div>
@@ -174,48 +249,44 @@ $ view_projects
 <h2 class="section-title"># about_me</h2>
 <div class="card">
 Crafting my creativity.<br><br>
-<ul style="margin-left: 20px;">
-<li>I'm Hurshanth  a design focused developer passionate about UI/UX and gaming inspired interfaces.</li>
-<li>I enjoy creating visually sharp, immersive digital experiences that feel powerful and intuitive.</li>
-<li>My focus is on building structured layouts, clean interaction systems, and futuristic design concepts.</li>
-<li>I continuously improve my skills in web development, interface architecture, and creative problem solving.</li>
+<ul style="margin-left:20px;">
+<li>I'm Hurshanth — a design focused developer passionate about UI/UX and gaming inspired interfaces.</li>
+<li>I create immersive digital experiences that feel powerful and intuitive.</li>
+<li>Focused on structured layouts and futuristic design systems.</li>
+<li>Continuously improving web development and creative problem solving.</li>
+</ul>
 </div>
 </section>
 
 <section id="skills">
 <h2 class="section-title"># skills</h2>
 <div class="card">HTML / CSS</div>
-<div class="card">UI/UX </div>
+<div class="card">UI/UX</div>
 <div class="card">Canva</div>
 <div class="card">Figma</div>
 </section>
 
 <section id="projects">
 <h2 class="section-title"># projects</h2>
-<div class="card">
-> Gaming Tournament UI Architecture
-</div>
-<div class="card">
-> Python Logic Utilities
-</div>
+<div class="card">> Gaming Tournament UI Architecture</div>
+<div class="card">> Python Logic Utilities</div>
 </section>
 
 <section id="contact">
 <h2 class="section-title"># contact</h2>
 <div class="card">
-Email: <a href="mailto:harihurshanth3@gmail.com" style="color: #39ff14;">harihurshanth3@gmail.com</a>
+Email: <a href="mailto:harihurshanth3@gmail.com" style="color:#39ff14;">harihurshanth3@gmail.com</a>
 </div>
 <div class="card">
-Linkedin: <a href="https://www.linkedin.com/in/hurshanth-s-r-2b4956381" style="color: #39ff14;" target="_blank">https://www.linkedin.com/in/hurshanth-s-r-2b4956381</a>
-</div>
+LinkedIn: <a href="https://www.linkedin.com/in/hurshanth-s-r-2b4956381" style="color:#39ff14;" target="_blank">View Profile</a>
 </div>
 <div class="card">
-Github: <a href="https://github.com/hurshanth-17" style="color: #39ff14;" target="_blank">https://github.com/hurshanth-17</a>
+GitHub: <a href="https://github.com/hurshanth-17" style="color:#39ff14;" target="_blank">View Repository</a>
 </div>
 </section>
-<center>
-    <p class="prompt">$ <span id="typing"></span><span class="cursor">█</span></p>
-</center>
+
+<p class="prompt">$ <span id="typing"></span><span class="cursor">█</span></p>
+
 <script src="script.js"></script>
 </body>
 </html>
